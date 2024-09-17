@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             val alturaStr: String = edtAltura.text.toString()
 
             if(pesoStr == "" || alturaStr == "") {
-                //MOstrar mensagem para o usuário
+                //Mostrar mensagem para o usuário
 
                 Snackbar.make(
                     edtPeso,
@@ -42,6 +43,15 @@ class MainActivity : AppCompatActivity() {
 
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
+
+               // Cores
+               // EditText backgroun + Icone
+               // Gradiente + icone + titulo + descrição
+
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC,resultado)
+                startActivity(intent)
 
 
                 println("Alice ação do botão " + resultado)
